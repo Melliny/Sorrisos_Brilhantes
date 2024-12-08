@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sorrisos Brilhantes</title>
+    <script>
+        function startCountdown() {
+            const countdownDate = new Date("2024-12-25T00:00:00").getTime();
+            const countdownElement = document.getElementById("countdown");
+
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "Hoje é dia de celebrar o Dia da Criança Especial!";
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body onload="startCountdown()">
+    <header>
+        <h1>Sorrisos Brilhantes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="atividades.html">Atividades</a></li>
+                <li><a href="historias.html">Histórias</a></li>
+                <li><a href="jogos.html">Jogos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Bem-vindo ao Sorrisos Brilhantes!</h2>
+            <p>Dia 9 de Dezembro celebramos a alegria e a magia da infância.</p>
+            <p>Este dia é uma oportunidade para refletirmos sobre a inclusão e o respeito às crianças com necessidades especiais.</p>
+            <center>
+            <img src="https://epedagogika.pl/appFiles/site_141/images/doc/6anEjDV0SOevcqN.jpeg" alt="Celebração do Dia da Criança" class="centered-image">
+            <h3> Contagem Regressiva!</h3>
+            <p id="countdown"></p>
+            </center>
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sorrisos Brilhantes. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
